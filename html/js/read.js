@@ -8,6 +8,16 @@ async function loadIntoTable(url, table) {
 	tableHead.innerHTML = '<tr></tr>';
 	tableBody.innerHTML = '';
 
+	// If no data comes back from fetch then log to console and return
+	if (data.length === 0) {
+		const nodataInfo = document.createElement('div');
+		nodataInfo.textContent = 'No data found, try creating a new product!';
+		nodataInfo.setAttribute('role', 'alert');
+		nodataInfo.setAttribute('class', 'alert alert-warning');	
+		tableBody.appendChild(nodataInfo);
+		return;
+	}
+
 	// Populate the header
 	for (const headerText of Object.keys(data[0])) {
 		const headerElement = document.createElement('th');
