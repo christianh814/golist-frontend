@@ -14,7 +14,10 @@ async function loadIntoTable(url, table) {
 		nodataInfo.textContent = 'No data found, try creating a new product!';
 		nodataInfo.setAttribute('role', 'alert');
 		nodataInfo.setAttribute('class', 'alert alert-warning');	
-		tableBody.appendChild(nodataInfo);
+
+		const tableObj = document.getElementById('prodtable');
+
+		tableObj.parentNode.insertBefore(nodataInfo, tableObj);
 		return;
 	}
 
@@ -68,4 +71,4 @@ async function loadIntoTable(url, table) {
 
 }
 
-loadIntoTable('http://localhost:8080/api/products', document.querySelector('table'));
+loadIntoTable('http://192.168.1.253:8080/api/products', document.querySelector('table'));

@@ -18,7 +18,7 @@ myForm.addEventListener('submit', function(e) {
 	});
 
 	// Use fetch to send the payload to the server
-	fetch('http://localhost:8080/api/products', { 
+	fetch('http://192.168.1.253:8080/api/products', { 
 		method: 'POST',
 		body: jsonPayload,
 		headers: {
@@ -28,5 +28,13 @@ myForm.addEventListener('submit', function(e) {
 	})
 		.then(res => res.json())
 		.then(data => console.log(data))
+		.then(
+			//window.location.href = '/'
+			function disp_alert(){
+				//if (confirm("Successfully created listing!")) window.location = "/";
+				alert("Successfully created listing!");
+				window.location.href = '/'
+			}
+		)
 		.catch(err => console.log(err));
 })
