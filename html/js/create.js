@@ -8,17 +8,16 @@ myForm.addEventListener('submit', function(e) {
 	const payload = new FormData(myForm);
 
 	// convert payload to json
-	//var obj = {};
-	//payload.forEach((value, key) => obj[key] = value);
+	var obj = {};
+	payload.forEach((value, key) => obj[key] = value);
 	//var jsonPayload = JSON.stringify(obj);
 	var jsonPayload = JSON.stringify({
-		"name": payload.name,
-		"price": Number(payload.price),
-		"description": payload.description,
+		"name": obj.name,
+		"price": Number(obj.price),
+		"description": obj.description,
 	});
 
-	console.log(jsonPayload)
-
+	// Use fetch to send the payload to the server
 	fetch('http://localhost:8080/api/products', { 
 		method: 'POST',
 		body: jsonPayload,
