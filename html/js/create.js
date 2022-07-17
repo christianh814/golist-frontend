@@ -8,9 +8,14 @@ myForm.addEventListener('submit', function(e) {
 	const payload = new FormData(myForm);
 
 	// convert payload to json
-	var obj = {};
-	payload.forEach((value, key) => obj[key] = value);
-	var jsonPayload = JSON.stringify(obj);
+	//var obj = {};
+	//payload.forEach((value, key) => obj[key] = value);
+	//var jsonPayload = JSON.stringify(obj);
+	var jsonPayload = JSON.stringify({
+		"name": payload.name,
+		"price": Number(payload.price),
+		"description": payload.description,
+	});
 
 	console.log(jsonPayload)
 

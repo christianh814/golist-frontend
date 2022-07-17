@@ -35,16 +35,16 @@
                 <!-- START -->
                 <form class="form needs-validation" id="createProduct">
                     <div class="input-group mb-3">
-                      <span class="input-group-text" for="inpName">Name</span>
-                      <input type="text" class="form-control" name="name" id="inpName" required>
+                      <span class="input-group-text" for="name">Name</span>
+                      <input type="text" class="form-control" name="name" id="name" required>
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" for="inpPrice">Price</span>
-                      <input type="number" name="price" class="form-control" id="inpPrice" step="0.01" required>
+                      <span class="input-group-text" for="price">Price</span>
+                      <input type="number" name="price" placeholder="0.00" min="0" value="0" class="form-control" id="price" step="0.01" required>
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" for="inpDesc">Description</span>
-                      <input type="text" name="description" class="form-control" id="inpDesc" required>
+                      <span class="input-group-text" for="description">Description</span>
+                      <input type="text" name="description" class="form-control" id="description" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
