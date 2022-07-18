@@ -1,5 +1,21 @@
 const apiEndpoint = "http://192.168.1.253:8080/api/products"
 
+async function deleteProduct(id) {
+	// ask user if they are sure they want to delete the record, return if they don't
+	if (!confirm('Are you sure you want to delete this record?')) return;
+
+	// Try and delete the product by id
+	const response = await fetch(apiEndpoint + '/' + id, {
+		method: 'DELETE',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+	});
+	const data = await response.json();
+	console.log(data);
+	window.location.reload();
+}
+
 async function loadIntoTable(url, table) {
 	const tableHead = table.querySelector('thead');
 	const tableBody = table.querySelector('tbody');
@@ -57,6 +73,29 @@ async function loadIntoTable(url, table) {
 
 			cellElement.textContent = cell;
 			rowElement.appendChild(cellElement);
+
+			// Get the key from the key/value pair
+			const key = Object.keys(row)[Object.values(row).indexOf(cell)];
+
+
+			// create event listeners
+			if (key === 'id') {
+				// add event listener to the delete button based on the key
+				deleteButton.addEventListener('click', function(e) {
+					e.preventDefault();
+					deleteProduct(cell);
+				});
+
+				// Add event listener to the edit button based on the key
+				// if the user clicks the edit button, then load the edit page
+				editButton.addEventListener('click', function(e) {
+					e.preventDefault();
+					window.location.href = '/edit?id=' + cell;
+				});
+
+			}
+
+
 		}
 
 		// Create button TD
