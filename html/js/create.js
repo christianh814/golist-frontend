@@ -1,4 +1,5 @@
 const myForm = document.getElementById('createProduct');
+const apiEndpoint = "http://192.168.1.253:8080/api/products"
 
 myForm.addEventListener('submit', function(e) {
 	// Prevent the default behavior of the form
@@ -18,7 +19,7 @@ myForm.addEventListener('submit', function(e) {
 	});
 
 	// Use fetch to send the payload to the server
-	fetch('http://192.168.1.253:8080/api/products', { 
+	fetch(apiEndpoint, { 
 		method: 'POST',
 		body: jsonPayload,
 		headers: {

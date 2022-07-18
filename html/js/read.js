@@ -1,3 +1,5 @@
+const apiEndpoint = "http://192.168.1.253:8080/api/products"
+
 async function loadIntoTable(url, table) {
 	const tableHead = table.querySelector('thead');
 	const tableBody = table.querySelector('tbody');
@@ -71,4 +73,4 @@ async function loadIntoTable(url, table) {
 
 }
 
-loadIntoTable('http://192.168.1.253:8080/api/products', document.querySelector('table'));
+loadIntoTable(apiEndpoint, document.querySelector('table'));
