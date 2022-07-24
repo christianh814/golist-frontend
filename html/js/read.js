@@ -1,4 +1,4 @@
-const apiEndpoint = "http://192.168.1.253:8080/api/products"
+const apiEndpoint = "http://golist-api:8080/api/products"
 
 async function deleteProduct(id) {
 	// ask user if they are sure they want to delete the record, return if they don't

@@ -1,5 +1,5 @@
 const myForm = document.getElementById('createProduct');
-const apiEndpoint = "http://192.168.1.253:8080/api/products"
+const apiEndpoint = "http://golist-api:8080/api/products"
 
 myForm.addEventListener('submit', function(e) {
 	// Prevent the default behavior of the form

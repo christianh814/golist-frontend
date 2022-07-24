@@ -1,5 +1,5 @@
 const myForm = document.getElementById('editProduct');
-const apiEndpoint = "http://192.168.1.253:8080/api/products"
+const apiEndpoint = "http://golist-api:8080/api/products"
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);

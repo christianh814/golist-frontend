@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: golist-frontend
+  name: golist-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: golist-frontend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: golist-frontend
+    spec:
+      containers:
+      - image: quay.io/christianh814/golist-frontend:latest
+        name: golist-frontend
+        resources: {}
