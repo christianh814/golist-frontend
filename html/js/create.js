@@ -1,5 +1,6 @@
 const myForm = document.getElementById('createProduct');
-const apiEndpoint = "http://golist-api:8080/api/products"
+import appConfig from '../appconfig/config.json' assert {type: 'json'};
+const apiEndpoint = appConfig.api;
 
 myForm.addEventListener('submit', function(e) {
 	// Prevent the default behavior of the form

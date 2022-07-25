@@ -1,4 +1,5 @@
-const apiEndpoint = "http://golist-api:8080/api/products"
+import appConfig from '../appconfig/config.json' assert {type: 'json'};
+const apiEndpoint = appConfig.api;
 
 async function deleteProduct(id) {
 	// ask user if they are sure they want to delete the record, return if they don't
@@ -111,5 +112,6 @@ async function loadIntoTable(url, table) {
 	}
 
 }
+
 
 loadIntoTable(apiEndpoint, document.querySelector('table'));

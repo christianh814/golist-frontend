@@ -19,4 +19,25 @@ spec:
       containers:
       - image: quay.io/christianh814/golist-frontend:latest
         name: golist-frontend
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 3
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/appconfig
         resources: {}
+      volumes:
+        - name: config-volume
+          configMap:
+            name: golist-frontend-config
