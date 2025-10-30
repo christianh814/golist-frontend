@@ -8,22 +8,22 @@ on:
 jobs:
   build:
     name: Build and push image
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Set Build Variables
       id: set-vars
       run: |
-        echo ::set-output name=image_tag::$(echo $GITHUB_SHA  | cut -c1-6)
+        echo "image_tag=$(echo $GITHUB_SHA | cut -c1-6)" >> $GITHUB_OUTPUT
 
     - name: Build Image
       id: build-image
       uses: redhat-actions/buildah-build@v2
       with:
         image: golist-frontend
-        tags: latest ${{ steps.vars.outputs.image_tag }}
+        tags: latest ${{ steps.set-vars.outputs.image_tag }}
         containerfiles: |
           ./Containerfile
 

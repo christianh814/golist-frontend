@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/httpd-24
+FROM registry.access.redhat.com/ubi10/httpd-24
 
 USER 0
 
@@ -12,4 +12,4 @@ USER 1001
 
 RUN /usr/libexec/s2i/assemble
 
-CMD /usr/libexec/s2i/run
+CMD ["/usr/libexec/s2i/run"]
